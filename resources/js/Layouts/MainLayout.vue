@@ -8,8 +8,15 @@
                 <div class="text-xl font-bold text-indigo-600 dark:text-indigo-300 text-center">
                     <Link :href="route('listing.index')">Realestate</Link>
                 </div>
-                <div>
+                <div v-if="user" class="flex items-center gap-4">
+                    <div class="text-sm text-gray-500">{{ user.name }}</div>
                     <Link :href="route('listing.create')" class="btn-primary">+ New Listing</Link>
+                    <div>
+                        <Link :href="route('logout')" method="delete" as="button">Logout</Link>
+                    </div>
+                </div>
+                <div v-else>
+                    <Link :href="route('login')">Sign-in</Link>
                 </div>
             </nav>
         </div>
@@ -30,4 +37,5 @@
 
     const page = usePage()
     const flashSuccess = computed(()=>page.props.flash.success)
+    const user = computed(()=>page.props.user) 
 </script>
