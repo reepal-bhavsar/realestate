@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
+    /* Restrict routes using constructor*/
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except(['index', 'show']);
+    // }
+
+
     /* Display list of lisitngs*/
     public function index()
     {
