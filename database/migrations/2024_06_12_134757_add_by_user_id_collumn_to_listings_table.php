@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('listings', function (Blueprint $table) {
             $table->foreignIdFor(
                 \App\Models\User::class,
-                'by_user_id'
+                'by_user_id' 
             )->constrained('users');
         });
     }
